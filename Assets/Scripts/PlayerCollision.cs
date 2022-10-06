@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private AudioSource hitSound;
 
     private Collider2D _playerCollider;
     private void Start()
@@ -38,6 +39,7 @@ public class PlayerCollision : MonoBehaviour
 
         if (_playerCollider.IsTouchingLayers(LayerMask.GetMask("Hazard")))
         {
+            hitSound.Play();
             playerController.TakeDamage();
         }
 

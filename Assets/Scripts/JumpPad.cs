@@ -5,6 +5,7 @@ public class JumpPad : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private float jumpPadForce = 13f;
     [SerializeField] private float additionalSleepJumpTime = 0.3f;
+    [SerializeField] private AudioSource jumepsprung;
     
     private static readonly int Bounce = Animator.StringToHash("Bounce");
 
@@ -13,6 +14,7 @@ public class JumpPad : MonoBehaviour
     
     public void TriggerJumpPad()
     {
+        jumepsprung.Play();
         animator.SetTrigger(Bounce);
     }
 }

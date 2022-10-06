@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private float extraGroundCheckDistance = 0.5f;
     
+    [SerializeField] private AudioSource walkSound;
+
     // Input Values
     private float _moveInput;
     
@@ -150,8 +152,9 @@ public class PlayerController : MonoBehaviour
     
     #region Input
     
-    private void OnMove(InputValue value)
+    private void OnMove(InputValue value)  
     {
+        walkSound.Play();
         _moveInput = value.Get<float>();
         
         FlipPlayerSprite();
